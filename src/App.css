@@ -1,0 +1,66 @@
+* {
+	font-size: 16px;
+}
+
+.container {
+	display: flex;
+	height: 100vh;
+	width: 100%;
+	font-family: 'IBM Plex Sans Condensed';
+	--spacing: 8px;
+}
+
+.input {
+	display: flex;
+	flex: 1;
+	padding: calc(var(--spacing) * 2);
+	font-family: 'IBM Plex Sans Condensed';
+	border: none;
+	resize: none;
+	overflow: scroll;
+	font-size: 22px;
+}
+
+.output {
+	display: flex;
+	flex: 2;
+	background: black;
+	color: white;
+	padding: var(--spacing);
+	overflow: scroll;
+}
+
+pre {
+	height: 100%;
+	overflow: scroll;
+	width: 50%;
+}
+
+.node {
+	cursor: pointer;
+	z-index: 1000;
+}
+
+.node, path {
+	transition: opacity 0.22s;
+}
+
+.text {
+	text-shadow: 0 0 8px black;
+}
+
+path {
+	fill: none;
+	stroke: white;
+}
+
+marker {
+	fill: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+		flex-direction: column;
+  }
+}
+
