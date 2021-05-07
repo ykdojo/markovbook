@@ -2,6 +2,7 @@ import React from 'react';
 import * as d3 from 'd3';
 import './App.css';
 
+
 // TODO:
 // figure out why extra nodes are being drawn 
 // add generation based on the current chain
@@ -12,8 +13,8 @@ const FONT_SIZE = 16;
 // TODO: replace with better tokenizier
 const tokenize = (input) => {
 	const match = input.match(/\S+/g);
-	if(match) {
-		return match.map(t => t.toLowerCase())
+	if (match) {
+		return match
 	}
 
 	return []
