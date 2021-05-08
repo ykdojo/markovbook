@@ -2,7 +2,6 @@ import React from 'react';
 import * as d3 from 'd3';
 import './App.css';
 
-
 // TODO:
 // figure out why extra nodes are being drawn 
 // add generation based on the current chain
@@ -148,12 +147,7 @@ function GraphViz({ data, onNodeMouseover, onNodeMouseout }) {
 					.data(links)
 					.join(enter => enter.append("svg:path"))
 					.attr("class", "link")
-					.attr("stroke", function(d) {
-						return `rgba(255,255,255,${d.value}`;
-					})
-					.attr("stroke-width", function(d) {
-						return Math.sqrt(d.value * 5)
-				})
+					.attr("stroke-width", 1.5)
 				linkRef.current.exit().remove()
 
 
