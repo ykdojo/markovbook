@@ -74,7 +74,7 @@ function GraphViz({ data, onNodeMouseover, onNodeMouseout }) {
 			const width = rect.width;
 			const height = rect.height;
 
-			// Draw the linkss
+			// Draw the links
 			if(!linkRef.current) {
 				linkRef.current = svg
 				.append("g")
@@ -114,34 +114,6 @@ function GraphViz({ data, onNodeMouseover, onNodeMouseout }) {
 
 				simulationRef.current.nodes(nodes).on("tick", ticked);
 				simulationRef.current.force("link").links(links);
-				
-				// Draw links
-				linkRef.current
-							.attr("stroke", function(d) {
-								return `rgba(255,255,255,${d.value}`;
-							})
-							.attr("stroke-width", function(d) {
-								return d.value * 10
-							})
-
-				// Draw nodes
-				nodeRef.current.append("circle")
-						.attr("r", function(d) {
-							return d.id.length * (FONT_SIZE/3)  + 5
-						})
-						.attr("x", -8)
-						.attr("y", -8)
-						.attr("stroke", "rgba(255,255,255,0.25)")
-
-				nodeRef.current.append("text")
-						.attr("class", "text")
-						.attr("text-anchor", "middle")
-						.attr("dx", 0)
-						.attr("dy", 5)
-						.attr("fill", "white")
-						.text(function(d) {
-							return d.id
-				});
 				
 				nodeRef.current.on('mouseover', function(e, d) {
 					// parent callback
