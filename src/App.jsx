@@ -2,14 +2,8 @@ import React from 'react';
 import * as d3 from 'd3';
 import './App.css';
 
-// TODO:
-// figure out why extra nodes are being drawn 
-// add generation based on the current chain
-// when generating, show which part of the graph you are going through
-
 const FONT_SIZE = 16;
 
-// TODO: replace with better tokenizier
 const tokenize = (input) => {
 	const match = input.match(/\S+/g);
 	if (match) {
@@ -147,9 +141,8 @@ function GraphViz({ data, onNodeMouseover, onNodeMouseout }) {
 					.data(links)
 					.join(enter => enter.append("svg:path"))
 					.attr("class", "link")
-					.attr("stroke-width", 1.5)
+					.attr("stroke-width", 1)
 				linkRef.current.exit().remove()
-
 
 				// TODO: better for updates for removing inner / repeated content from the DOM 
 				d3.selectAll("g circle").remove()
@@ -167,7 +160,7 @@ function GraphViz({ data, onNodeMouseover, onNodeMouseout }) {
 					})
 					.attr("x", -8)
 					.attr("y", -8)
-					.attr("stroke", "rgba(255,255,255,0.25)")
+					.attr("stroke", "rgba(255,255,255,0.5)")
 
 				nodeRef.current.append("text")
 						.attr("class", "text")
@@ -228,7 +221,6 @@ function GraphViz({ data, onNodeMouseover, onNodeMouseout }) {
 			}
 
     },
-		// TODO: better check for data changes
 		[nodes]
   );
 
