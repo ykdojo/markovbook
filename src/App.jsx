@@ -139,7 +139,7 @@ function GraphViz({ data, onNodeMouseover, onNodeMouseout }) {
 
 				linkRef.current = linkRef.current
 					.data(links)
-					.join(enter => enter.append("svg:path"))
+					.join(enter => enter.append("path"))
 					.attr("class", "link")
 					.attr("stroke-width", 1)
 				linkRef.current.exit().remove()
